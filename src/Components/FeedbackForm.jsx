@@ -24,7 +24,7 @@ const FeedbackForm = () => {
     const isConfirmed = window.confirm(`Please confirm your details:\n\n${confirmationMessage}`);
     if (isConfirmed) {
       console.log('Submitting feedback:', formData);
-      setFormDate({
+      setFormData({
         name: '',
         email: '',
         feedback: '',
@@ -37,7 +37,7 @@ const FeedbackForm = () => {
     <nav>
     Tell Us What You Think
     </nav>
-      <form className="feedback-form">
+      <form onSubmit={handleSubmit} className="feedback-form">
         <h2>We'd Love to Hear From You!</h2>
         <p>Please share your feedback with us.</p>
         <input
