@@ -6,6 +6,7 @@ const FeedbackForm = () => {
     name: '',
     email: '',
     feedback: '',
+    rating: '',
   });
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -20,6 +21,7 @@ const FeedbackForm = () => {
       Name: ${formData.name}
       Email: ${formData.email}
       Feedback: ${formData.feedback}
+      Rating: ${formData.rating}
     `;
     const isConfirmed = window.confirm(`Please confirm your details:\n\n${confirmationMessage}`);
     if (isConfirmed) {
@@ -28,8 +30,10 @@ const FeedbackForm = () => {
         name: '',
         email: '',
         feedback: '',
+        rating: '',
       });
     }
+
   };
 
   return (
@@ -59,7 +63,14 @@ const FeedbackForm = () => {
           placeholder="Your feedback"
           value={formData.feedback}
           onChange={handleChange}
-        />        
+        />    
+        <div style={{display:'flex',gap:'10px',flexDirection:'column'}}>Rate us:   
+        <input type="radio" name="rating" value="1" onChange={handleChange}/> 1
+        <input type="radio" name="rating" value="2" onChange={handleChange} /> 2
+        <input type="radio" name="rating" value="3" onChange={handleChange} /> 3
+        <input type="radio" name="rating" value="4" onChange={handleChange} /> 4
+        <input type="radio" name="rating" value="5" onChange={handleChange} /> 5
+        </div>
         <button type="submit">Submit feedback</button>
       </form>
     </>
@@ -67,3 +78,4 @@ const FeedbackForm = () => {
 };
 
 export default FeedbackForm;
+
